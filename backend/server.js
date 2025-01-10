@@ -41,7 +41,7 @@ function stopMosquittoDocker() {
 startMosquittoDocker();
 
 // Conectando ao broker MQTT
-const mqttClient = mqtt.connect("mqtt://192.168.69.58:1883"); // Substitua pelo IP correto do broker
+const mqttClient = mqtt.connect("mqtt://192.168.227.58:1883"); // Substitua pelo IP correto do broker
 
 mqttClient.on("connect", () => {
   console.log("Conectado ao broker MQTT");
@@ -92,7 +92,7 @@ wss.on("connection", (ws) => {
 
   // Quando o cliente envia uma mensagem (comandos do joystick)
   ws.on("message", (message) => {
-    console.log("Mensagem recebida do frontend:", message);
+    //* console.log("Mensagem recebida do frontend:", message);
 
     // Parse da mensagem recebida do WebSocket (velocidade e ângulo)
     const data = JSON.parse(message);
@@ -106,7 +106,7 @@ wss.on("connection", (ws) => {
     });
     mqttClient.publish("robo/comandos", comando);
 
-    console.log("Comando enviado ao MQTT:", comando);
+    //* console.log("Comando enviado ao MQTT:", comando);
   });
 
   mqttClient.on("message", (topic, message) => {

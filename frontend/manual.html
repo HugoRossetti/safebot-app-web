@@ -494,8 +494,8 @@
           ultimaAtualizacao = agora;
 
           // Invertendo o valor da velocidade antes de adicionar ao gráfico
-          const fatorDeEscala = 50;
-          const velocidadeCorrigida = novaVelocidade * fatorDeEscala;
+          const fatorDeVelocidade = 35;
+          const velocidadeCorrigida = novaVelocidade * fatorDeVelocidade;
           chartVelocidade.data.labels.push(agora);
           chartVelocidade.data.datasets[0].data.push(velocidadeCorrigida);
 
